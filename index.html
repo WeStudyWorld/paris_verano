@@ -652,8 +652,7 @@
     footer a { color: var(--or); text-decoration: none; }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      nav { padding: 12px 20px; }
+    @media (max-width: 900px) {      nav { padding: 12px 20px; }
       section { padding: 60px 0; }
       .hero-content { padding: 0 24px; }
       .stats-bar { padding: 24px 0; }
@@ -666,9 +665,60 @@
       .visa-cards { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
+      .extra-costs-grid { grid-template-columns: 1fr !important; }
       .packages-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr; }
       .step::after { display: none; }
+    }
+    /* GASTOS ADICIONALES */
+    .extra-costs-section {
+      background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1800&q=85');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center center;
+      position: relative;
+      isolation: isolate;
+    }
+    .extra-costs-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 18, 45, 0.78);
+      z-index: 0;
+    }
+    .extra-costs-overlay {
+      position: relative;
+      z-index: 1;
+      padding: 80px 0;
+    }
+    .extra-costs-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .extra-costs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .extra-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 32px 28px;
+      transition: transform .2s, background .2s;
+    }
+    .extra-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.12); }
+    .extra-card-icon { font-size: 36px; margin-bottom: 14px; }
+    .extra-card-title { font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .extra-card-sub { font-size: 12px; color: rgba(255,255,255,0.55); margin-bottom: 16px; text-transform: uppercase; letter-spacing: .04em; }
+    .extra-card-price { font-size: 26px; font-weight: 900; margin-bottom: 14px; }
+    .extra-card-note { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+    @media (max-width: 700px) {
+      .extra-costs-grid { grid-template-columns: 1fr; }
+      .extra-costs-section { background-attachment: scroll; }
     }
   </style>
 </head>
@@ -934,7 +984,48 @@
   </p>
 </section>
 
-<!-- VIDA EN PARIS -->
+<!-- GASTOS ADICIONALES -->
+<section class="extra-costs-section">
+  <div class="extra-costs-overlay">
+    <div class="container">
+      <div class="extra-costs-header">
+        <span class="section-tag" style="background:rgba(255,255,255,0.15); color:#fff;">Planifica tu presupuesto</span>
+        <h2 style="color:#fff; font-size:28px; margin:12px 0 8px;">Gastos adicionales a considerar</h2>
+        <p style="color:rgba(255,255,255,0.82); font-size:15px; max-width:580px; margin:0 auto; line-height:1.7;">Estos costos <strong>no están incluidos</strong> en el paquete. Te los mostramos para que planifiques tu presupuesto total sin sorpresas.</p>
+      </div>
+      <div class="extra-costs-grid">
+
+        <!-- Tiquetes -->
+        <div class="extra-card">
+          <div class="extra-card-icon">✈️</div>
+          <div class="extra-card-title">Tiquetes aéreos</div>
+          <div class="extra-card-sub">Ida y vuelta · Bogotá → París</div>
+          <div class="extra-card-price" style="color:#7eb8ff;">USD 700 – 1.100</div>
+          <div class="extra-card-note">Según temporada y antelación. Comprar con 6–8 semanas de anticipación reduce el precio. Fuente: Skyscanner / KAYAK.</div>
+        </div>
+
+        <!-- Seguro -->
+        <div class="extra-card">
+          <div class="extra-card-icon">🏥</div>
+          <div class="extra-card-title">Seguro médico de viaje</div>
+          <div class="extra-card-sub">Obligatorio · Zona Schengen</div>
+          <div class="extra-card-price" style="color:#ff8a8a;">USD 50 – 120</div>
+          <div class="extra-card-note">Cobertura mínima de €30.000 exigida para el visado. Disponible en aseguradoras colombianas como Assist Card o AXA.</div>
+        </div>
+
+        <!-- Gastos personales -->
+        <div class="extra-card">
+          <div class="extra-card-icon">🛍️</div>
+          <div class="extra-card-title">Gastos personales</div>
+          <div class="extra-card-sub">Transporte, salidas y ocio</div>
+          <div class="extra-card-price" style="color:#ffd97d;">€30 – 60 / día</div>
+          <div class="extra-card-note">Metro, comidas extra, museos y paseos. París es caminable y el metro es muy accesible (~€17 la semana con Navigo).</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
 <section class="life-section">
   <div class="container">
   <div class="section-tag">La experiencia</div>
